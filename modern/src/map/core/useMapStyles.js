@@ -199,7 +199,7 @@ export default () => {
     },
     {
       id: 'ordnanceSurvey',
-      title: t('mapOrdnanceSurvey'),
+      title: t('OS Mastermap),
       style: 'https://api.os.uk/maps/vector/v1/vts/resources/styles?key=EAZ8p83u72FTGiLjLC2MsTAl1ko6XQHC',
       transformRequest: (url) => ({
         url: `${url}&srs=3857`,
@@ -235,6 +235,16 @@ export default () => {
       }),
       available: !!mapboxAccessToken,
       attribute: 'mapboxAccessToken',
+    },
+    {
+      id: 'bingOS',
+      title: 'Ordnance Survey',
+      style: styleCustom({
+        tiles: [`https://ecn.t0.tiles.virtualearth.net/tiles/r{quadkey}?g=12276&lbl=l1&productSet=mmOS&key=${bingMapsKey}`],
+        maxZoom: 19,
+      }),
+      available: !!bingMapsKey,
+      attribute: 'bingMapsKey',
     },
     {
       id: 'custom',
